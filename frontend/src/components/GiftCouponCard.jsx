@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useCartStore } from "../stores/useCartStore";
 
@@ -25,12 +24,7 @@ const GiftCouponCard = () => {
 	};
 
 	return (
-		<motion.div
-			className='space-y-4 rounded-lg border border-gray-700 bg-gray-800 p-4 shadow-sm sm:p-6'
-			initial={{ opacity: 0, y: 20 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5, delay: 0.2 }}
-		>
+		<div className='space-y-4 rounded-lg border border-gray-700 bg-gray-800 p-4 shadow-sm sm:p-6'>
 			<div className='space-y-4'>
 				<div>
 					<label htmlFor='voucher' className='mb-2 block text-sm font-medium text-gray-300'>
@@ -49,15 +43,13 @@ const GiftCouponCard = () => {
 					/>
 				</div>
 
-				<motion.button
+				<button
 					type='button'
 					className='flex w-full items-center justify-center rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-300'
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
 					onClick={handleApplyCoupon}
 				>
 					Apply Code
-				</motion.button>
+				</button>
 			</div>
 			{isCouponApplied && coupon && (
 				<div className='mt-4'>
@@ -67,17 +59,15 @@ const GiftCouponCard = () => {
 						{coupon.code} - {coupon.discountPercentage}% off
 					</p>
 
-					<motion.button
+					<button
 						type='button'
 						className='mt-2 flex w-full items-center justify-center rounded-lg bg-red-600 
             px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none
              focus:ring-4 focus:ring-red-300'
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.95 }}
 						onClick={handleRemoveCoupon}
 					>
 						Remove Coupon
-					</motion.button>
+					</button>
 				</div>
 			)}
 
@@ -89,7 +79,7 @@ const GiftCouponCard = () => {
 					</p>
 				</div>
 			)}
-		</motion.div>
+		</div>
 	);
 };
 export default GiftCouponCard;
