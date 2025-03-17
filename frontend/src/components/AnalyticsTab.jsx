@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import axios from "../lib/axios";
 import { Users, Package, ShoppingCart, DollarSign } from "lucide-react";
@@ -62,12 +61,7 @@ const AnalyticsTab = () => {
 					color='from-emerald-500 to-lime-700'
 				/>
 			</div>
-			<motion.div
-				className='bg-gray-800/60 rounded-lg p-6 shadow-lg'
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.5, delay: 0.25 }}
-			>
+			<div className='bg-gray-800/60 rounded-lg p-6 shadow-lg'>
 				<ResponsiveContainer width='100%' height={400}>
 					<LineChart data={dailySalesData}>
 						<CartesianGrid strokeDasharray='3 3' />
@@ -94,18 +88,15 @@ const AnalyticsTab = () => {
 						/>
 					</LineChart>
 				</ResponsiveContainer>
-			</motion.div>
+			</div>
 		</div>
 	);
 };
 export default AnalyticsTab;
 
 const AnalyticsCard = ({ title, value, icon: Icon, color }) => (
-	<motion.div
+	<div
 		className={`bg-gray-800 rounded-lg p-6 shadow-lg overflow-hidden relative ${color}`}
-		initial={{ opacity: 0, y: 20 }}
-		animate={{ opacity: 1, y: 0 }}
-		transition={{ duration: 0.5 }}
 	>
 		<div className='flex justify-between items-center'>
 			<div className='z-10'>
@@ -117,5 +108,5 @@ const AnalyticsCard = ({ title, value, icon: Icon, color }) => (
 		<div className='absolute -bottom-4 -right-4 text-emerald-800 opacity-50'>
 			<Icon className='h-32 w-32' />
 		</div>
-	</motion.div>
+	</div>
 );
